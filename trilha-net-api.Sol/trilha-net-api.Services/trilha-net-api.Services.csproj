@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\trilha-net-api.Models\trilha-net-api.Models.csproj" />
+  </ItemGroup>
+
 </Project>
