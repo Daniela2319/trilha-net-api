@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trilha-net-api.Console", "trilha-net-api.Console\trilha-net-api.Console.csproj", "{34557DAD-1B77-4483-A02D-90DC8F5A2370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trilha-net-api.Services", "trilha-net-api.Services\trilha-net-api.Services.csproj", "{DC410A0D-0C5C-45B4-ABCC-B69BA3FF5C5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trilha-net-api.Models", "trilha-net-api.Models\trilha-net-api.Models.csproj", "{B05786F8-95AC-432E-AA60-423421319D2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trilha-net-api.Data", "trilha-net-api.Data\trilha-net-api.Data.csproj", "{9B8F391C-3AA6-4E51-9A3B-74A91EED1CD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trilha-net-api.WebApi", "trilha-net-api.WebApi\trilha-net-api.WebApi.csproj", "{DF288A51-2A01-4F63-8343-1C401E293A15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34557DAD-1B77-4483-A02D-90DC8F5A2370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34557DAD-1B77-4483-A02D-90DC8F5A2370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34557DAD-1B77-4483-A02D-90DC8F5A2370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34557DAD-1B77-4483-A02D-90DC8F5A2370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC410A0D-0C5C-45B4-ABCC-B69BA3FF5C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC410A0D-0C5C-45B4-ABCC-B69BA3FF5C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC410A0D-0C5C-45B4-ABCC-B69BA3FF5C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC410A0D-0C5C-45B4-ABCC-B69BA3FF5C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05786F8-95AC-432E-AA60-423421319D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05786F8-95AC-432E-AA60-423421319D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05786F8-95AC-432E-AA60-423421319D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05786F8-95AC-432E-AA60-423421319D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B8F391C-3AA6-4E51-9A3B-74A91EED1CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B8F391C-3AA6-4E51-9A3B-74A91EED1CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B8F391C-3AA6-4E51-9A3B-74A91EED1CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B8F391C-3AA6-4E51-9A3B-74A91EED1CD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF288A51-2A01-4F63-8343-1C401E293A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF288A51-2A01-4F63-8343-1C401E293A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF288A51-2A01-4F63-8343-1C401E293A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF288A51-2A01-4F63-8343-1C401E293A15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06D988B3-B4F1-471A-B68E-152194A930B2}
+	EndGlobalSection
+EndGlobal
