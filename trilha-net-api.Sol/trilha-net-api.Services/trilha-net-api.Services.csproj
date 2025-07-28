@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\trilha-net-api.Data\trilha-net-api.Data.csproj" />
     <ProjectReference Include="..\trilha-net-api.Models\trilha-net-api.Models.csproj" />
   </ItemGroup>
 

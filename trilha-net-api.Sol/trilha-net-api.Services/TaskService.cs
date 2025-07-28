@@ -1,86 +1,103 @@
-﻿using System.Runtime.ConstrainedExecution;
+﻿
 using trilha_net_api.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using trilha_net_api.Data;
+
 
 namespace trilha_net_api.Services
 {
     public class TaskService : ITaskService
     {
-        private List<TaskA> _tasks;
-        private TaskA _task;
+        #region Propriedades
+            private TaskA _task;
+            private OrganizerContext _organizerContext;
+        #endregion
 
-
-        #region Deletar
-        public bool Delete(int id)
-        {
-            this._task = GetTaskById(id);
-            if (this._task != null)
+        #region Contrutores
+        public TaskService(OrganizerContext organizerContext)
             {
-                _tasks.Remove(this._task);
-                return true;
+                this._organizerContext = organizerContext;
+           
             }
-            else
-            {
-                return false;
-            }
-        }
         #endregion
 
         #region ListaTodos
         public List<TaskA> GetAll()
-        {
-            return _tasks;
-        }
+            {
+                return _organizerContext.Tasks.ToList();
+            }
         #endregion
 
         #region ListaPorId
-        public TaskA GetById(int id)
-        {
-            this._task = GetTaskById(id);
-            return this._task;
-        }
+            public TaskA GetById(int id)
+            {
+                this._task = GetTaskById(id);
+                return this._task;
+            }
         #endregion
 
         #region Cadastrar
-        public int Register(string title, string description, DateTime dueDate, EnumStatusTask status)
-        {
-            this._task = CreateTask(0, title, description, dueDate, status);
-            this._tasks.Add(this._task);
-            return this._task.Id;
-        }
+            public int Register(string title, string description, DateTime dueDate, EnumStatusTask status)
+            {
+                this._task = CreateTask(0, title, description, dueDate, status);
+                this._organizerContext.Tasks.Add(this._task);
+                this._organizerContext.SaveChanges();
+                return this._task.Id;
+            }
         #endregion
 
         #region Editar
-        public bool Update(int id, string title, string description, DateTime dueDate, EnumStatusTask status)
-        {
-            this._task = this.GetTaskById(id);
-            if (this._task != null)
+            public bool Update(int id, string title, string description, DateTime dueDate, EnumStatusTask status)
             {
-                CreateTask(0, title, description, dueDate, status);
-                return true;
+                this._task = this.GetTaskById(id);
+                if (this._task != null)
+                {
+                    CreateTask(0, title, description, dueDate, status);
+
+                    _organizerContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+        #endregion
+
+        #region Deletar
+            public bool Delete(int id)
             {
-                return false;
+                this._task = GetTaskById(id);
+                if (this._task != null)
+                {
+                    _organizerContext.Remove(this._task);
+                    _organizerContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-        }
         #endregion
 
         #region Auxiliary Methods
-        private TaskA GetTaskById(int id)
-        {
-            return this._tasks.FirstOrDefault(t => t.Id == id);
-        }
-        private TaskA CreateTask(int id, string title, string description, DateTime dueDate, EnumStatusTask status)
-        {
-            this._task.Id = id;
-            this._task.Title = title;
-            this._task.Description = description;
-            this._task.DueDate = dueDate;
-            this._task.Status = status;
-            
-            return this._task;
-        }
+            private TaskA GetTaskById(int id)
+            {
+                return this._organizerContext.Tasks.FirstOrDefault(t => t.Id == id);
+            }
+            private TaskA CreateTask(int id, string title, string description, DateTime dueDate, EnumStatusTask status)
+            {
+
+                var task = new TaskA
+                {
+                    Title = title,
+                    Description = description,
+                    DueDate = dueDate,
+                    Status = status
+                };
+
+                return task;
+            }
         #endregion
     }
 }

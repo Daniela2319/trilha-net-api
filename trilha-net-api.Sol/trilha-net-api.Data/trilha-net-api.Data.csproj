@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\trilha-net-api.Models\trilha-net-api.Models.csproj" />
-    <ProjectReference Include="..\trilha-net-api.Services\trilha-net-api.Services.csproj" />
   </ItemGroup>
 
 </Project>
