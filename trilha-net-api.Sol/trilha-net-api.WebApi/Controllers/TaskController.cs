@@ -70,13 +70,46 @@ namespace trilha_net_api.WebApi.Controllers
 
         #region Delete
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var deleted = _taskService.Delete(id);
-            if (!deleted)
-                return NotFound("Tarefa não encontrada");
-            return NoContent();
-        }
+            public IActionResult Delete(int id)
+            {
+                var deleted = _taskService.Delete(id);
+                if (!deleted)
+                    return NotFound("Tarefa não encontrada");
+                return NoContent();
+            }
+        #endregion
+
+        #region ObterTitulo
+        [HttpGet("title/{title}")]
+            public IActionResult GetByTitle(string title)
+            {
+                var tasks = _taskService.GetAll().Where(t => t.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();
+                if (tasks == null || !tasks.Any())
+                    return NotFound("Nenhuma tarefa encontrada com o título especificado");
+                return Ok(tasks);
+            }
+        #endregion
+
+        #region ObterStatus
+        [HttpGet("status/{status}")]
+            public IActionResult GetByStatus(EnumStatusTask status)
+            {
+                var tasks = _taskService.GetAll().Where(t => t.Status == status).ToList();
+                if (tasks == null || !tasks.Any())
+                    return NotFound("Nenhuma tarefa encontrada com o status especificado");
+                return Ok(tasks);
+            }
+        #endregion
+
+        #region ObterData
+        [HttpGet("dueDate/{dueDate}")]
+            public IActionResult GetByDueDate(DateTime dueDate)
+            {
+                var tasks = _taskService.GetAll().Where(t => t.DueDate.Date == dueDate.Date).ToList();
+                if (tasks == null || !tasks.Any())
+                    return NotFound("Nenhuma tarefa encontrada com a data especificada");
+                return Ok(tasks);
+            }
         #endregion
     }
 }
