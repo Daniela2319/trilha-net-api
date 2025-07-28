@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using trilha_net_api.Data;
+using trilha_net_api.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +11,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Database OrganizerContext
+builder.Services.AddDbContext<OrganizerContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("postgresql");
+    options.UseNpgsql(connectionString);
+});
+
+// Services
+builder.Services.AddScoped<ITaskService, TaskService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
