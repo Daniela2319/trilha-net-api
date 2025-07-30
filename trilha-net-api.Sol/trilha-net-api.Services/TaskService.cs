@@ -21,7 +21,7 @@ namespace trilha_net_api.Services
         #endregion
 
         #region ListaTodos
-        public List<TaskA> GetAll()
+            public List<TaskA> GetAll()
             {
                 return _organizerContext.Tasks.ToList();
             }
