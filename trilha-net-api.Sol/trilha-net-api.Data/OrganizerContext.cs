@@ -9,6 +9,7 @@ namespace trilha_net_api.Data
         public OrganizerContext(DbContextOptions<OrganizerContext> options) : base(options)
         {}
         public DbSet<TaskA> Tasks { get; set; }
+        public DbSet<Administrador> Administradores { get; set; }
     }
        
 
