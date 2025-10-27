@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>trilha_net_api.Services</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\trilha-net-api.Data\trilha-net-api.Data.csproj" />
+    <ProjectReference Include="..\trilha-net-api.Models\trilha-net-api.Models.csproj" />
+  </ItemGroup>
+
+</Project>
